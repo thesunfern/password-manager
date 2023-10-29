@@ -2,6 +2,8 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppLayoutComponent } from './layout/app.layout.component';
 import { LoginComponent } from './login/login.component';
+import { authGuard } from 'src/guards/auth.guard';
+import { loginAuthGuard } from 'src/guards/login-auth.guard';
 
 @NgModule({
     imports: [
@@ -10,6 +12,7 @@ import { LoginComponent } from './login/login.component';
                 {
                     path: '',
                     component: LoginComponent,
+                    canActivate: [loginAuthGuard],
                 },
                 {
                     path: 'dashboard',
@@ -17,6 +20,7 @@ import { LoginComponent } from './login/login.component';
                         import('./dashboard/dashboard.module').then(
                             (m) => m.DashboardModule
                         ),
+                    canActivate: [authGuard],
                 },
                 { path: '**', redirectTo: '/notfound' },
             ],

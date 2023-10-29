@@ -9,10 +9,12 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { TooltipModule } from 'primeng/tooltip';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './login/login.service';
 
 @NgModule({
-    declarations: [AppComponent, LoginComponent, DashboardComponent],
+    declarations: [AppComponent, LoginComponent],
     imports: [
         AppRoutingModule,
         AppLayoutModule,
@@ -22,8 +24,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         ReactiveFormsModule,
         PasswordModule,
         InputTextModule,
+        TooltipModule,
+        HttpClientModule,
     ],
-    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+    providers: [
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
+        LoginService,
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -43,7 +43,7 @@
 
                 <form [formGroup]="form" (ngSubmit)="onLogin()">
                     <div>
-                        <label
+                        <!-- <label
                             for="email"
                             class="block text-900 text-xl font-medium mb-2"
                             >Email</label
@@ -56,6 +56,21 @@
                             pInputText
                             class="w-full md:w-30rem mb-5"
                             style="padding: 1rem"
+                        /> -->
+
+                        <label
+                            for="userId"
+                            class="block text-900 text-xl font-medium mb-2"
+                            >User ID</label
+                        >
+                        <input
+                            id="userId"
+                            type="text"
+                            formControlName="userId"
+                            placeholder="User ID"
+                            pInputText
+                            class="w-full md:w-30rem mb-5"
+                            style="padding: 1rem"
                         />
 
                         <label
@@ -65,6 +80,7 @@
                         >
                         <p-password
                             id="password"
+                            [feedback]="false"
                             formControlName="password"
                             placeholder="Password"
                             styleClass="mb-5"
